@@ -1,0 +1,16 @@
+namespace IPC2_PROY01_202602_202300379.Modelos
+{
+    public class Robot
+    {
+        public string Nombre { get; set; }
+        public string Tipo { get; set; } // "ChapinRescue" o "ChapinFighter"
+        public int CapacidadCombate { get; set; }
+
+        public Robot(string nombre, string tipo, int capacidadCombate = 0)
+        {
+            Nombre = nombre;
+            Tipo = tipo;
+            CapacidadCombate = capacidadCombate;
+        }
+    }
+}

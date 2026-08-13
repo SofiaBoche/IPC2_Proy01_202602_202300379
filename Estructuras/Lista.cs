@@ -1,61 +1,25 @@
-public class Lista<T>
+namespace IPC2_PROY01_202602_202300379.Estructuras
 {
-    private Nodo<T>? primero;
-    private int tamanio;
-
-    public Lista()
+    public class Lista
     {
-        primero = null;
-        tamanio = 0;
-    }
+        public Nodo Cabeza { get; set; }
 
-    public void Agregar(T dato)
-    {
-        Nodo<T> nuevo = new Nodo<T>(dato);
-
-        if (primero == null)
+        public void Agregar(object dato)
         {
-            primero = nuevo;
-        }
-        else
-        {
-            Nodo<T> actual = primero;
-
-            while (actual.GetSiguiente() != null)
+            Nodo nuevo = new Nodo(dato);
+            if (Cabeza == null)
             {
-                actual = actual.GetSiguiente()!;
+                Cabeza = nuevo;
             }
-
-            actual.SetSiguiente(nuevo);
+            else
+            {
+                Nodo actual = Cabeza;
+                while (actual.Siguiente != null)
+                {
+                    actual = actual.Siguiente;
+                }
+                actual.Siguiente = nuevo;
+            }
         }
-
-        tamanio++;
-    }
-
-    public T Obtener(int posicion)
-    {
-        if (posicion < 0 || posicion >= tamanio)
-        {
-            throw new ArgumentException("La posición no es válida.");
-        }
-
-        Nodo<T> actual = primero!;
-
-        for (int i = 0; i < posicion; i++)
-        {
-            actual = actual.GetSiguiente()!;
-        }
-
-        return actual.GetDato();
-    }
-
-    public int GetTamanio()
-    {
-        return tamanio;
-    }
-
-    public bool EstaVacia()
-    {
-        return primero == null;
     }
 }

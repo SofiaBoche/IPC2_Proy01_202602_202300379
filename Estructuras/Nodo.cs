@@ -1,26 +1,14 @@
-public class Nodo<T>
+namespace IPC2_PROY01_202602_202300379.Estructuras
 {
-    private T dato;
-    private Nodo<T>? siguiente;
-
-    public Nodo(T dato)
+    public class Nodo
     {
-        this.dato = dato;
-        this.siguiente = null;
-    }
+        public object Dato { get; set; }
+        public Nodo Siguiente { get; set; }
 
-    public T GetDato()
-    {
-        return dato;
-    }
-
-    public Nodo<T>? GetSiguiente()
-    {
-        return siguiente;
-    }
-
-    public void SetSiguiente(Nodo<T> siguiente)
-    {
-        this.siguiente = siguiente;
+        public Nodo(object dato)
+        {
+            Dato = dato;
+            Siguiente = null;
+        }
     }
 }
